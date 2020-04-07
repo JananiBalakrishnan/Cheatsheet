@@ -1,0 +1,31 @@
+Appium Setup For Mac
+Skip to end of metadata
+Created by Janani Balakrishnan, last modified 9 minutes agoGo to start of metadata
+
+
+Installation Steps : 
+
+Install XCode from AppStore
+Install HomeBrew
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew doctor
+export PATH="/usr/local/bin:$PATH"
+source ~./bashprofile
+Install node (npm will be installed together, check once)
+
+
+brew install node
+Install Appium - http://appium.io/
+
+npm install -g appium
+npm install wd
+authorize_ios
+Install Android SDK
+Environment Variables Setup : 
+ Set ANDROID_HOME to Android-Sdk Path
+ Set PATH to %ANDROID_HOME\tools;%ANDROID_HOME\platform-tools
+Download Appium-Doctor, it will walk you through the pending installation.
+Inbuilt Tool to locate mobile elements : /Android/sdk/tools/bin/uiAutomatorViewer
+Setup AVD Manager inside SDK Tools
