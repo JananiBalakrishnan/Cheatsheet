@@ -1,0 +1,108 @@
+Appium Setup For Mac
+Skip to end of metadata
+Created by Janani Balakrishnan, last modified 9 minutes agoGo to start of metadata
+
+
+Installation Steps : 
+
+Install XCode from AppStore
+Install HomeBrew
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew doctor
+export PATH="/usr/local/bin:$PATH"
+source ~./bashprofile
+Install node (npm will be installed together, check once)
+
+
+brew install node
+Install Appium - http://appium.io/
+
+npm install -g appium
+npm install wd
+authorize_ios
+Install Android SDK
+Environment Variables Setup : 
+ Set ANDROID_HOME to Android-Sdk Path
+ Set PATH to %ANDROID_HOME\tools;%ANDROID_HOME\platform-tools
+Download Appium-Doctor, it will walk you through the pending installation.
+Inbuilt Tool to locate mobile elements : /Android/sdk/tools/bin/uiAutomatorViewer
+Setup AVD Manager inside SDK Tools
+
+=============================================================================================================================
+
+Appium Installation Steps : 
+Install XCode from AppStore
+Install HomeBrew
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew doctor
+export PATH="/usr/local/bin:$PATH"
+source ~./bashprofile 
+
+
+Install node (npm will be installed together, check once)
+
+brew install node
+
+
+Install Appium - http://appium.io/
+
+npm install -g appium
+npm install wd
+authorize_ios
+
+
+
+Android Setup : 
+Install Android SDK
+
+Environment Variables Setup : 
+
+ Set ANDROID_HOME to Android-Sdk Path
+ Set PATH to %ANDROID_HOME\tools;%ANDROID_HOME\platform-tools
+Download Appium-Doctor, it will walk you through the pending installation.
+Inbuilt Tool to locate mobile elements : /Android/sdk/tools/bin/uiAutomatorViewer
+Setup AVD Manager inside SDK Tools
+iOS/WebDriverAgent Setup : 
+
+
+npm install -g appium@1.17.1-1
+brew upgrade node
+Check this location has package.json : cd /Users/<ldap>/node_modules
+
+If not, run this :
+
+ npm init
+Run the commands one by one : 
+
+npm install wd
+brew install libimobiledevice --HEAD
+brew install carthage
+npm install -g ios-deploy
+sudo gem install xcpretty
+Get the path :
+
+ npm ls -g appium-webdriveragent
+The location should look like : 
+
+cd /usr/local/lib/appium@1.17.1/appium-xcuitest-driver@3.22.0/appium-webdriveragent@2.14.2
+
+https://github.com/appium/WebDriverAgent
+
+Go to the directory where webdriveragent is :
+
+cd /Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-webdriveragent
+
+mkdir -p Resources/WebDriverAgent.bundle
+./Scripts/bootstrap.sh -d
+Open WebDriver Agent in XCODE, build, check if IntegrationApp is installed in the simulator.
+
+Documentation : 
+
+https://javadoc.io/doc/io.appium/java-client/latest/index.html
+
+
+
