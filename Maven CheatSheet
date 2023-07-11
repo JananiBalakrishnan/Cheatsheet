@@ -1,0 +1,14 @@
+#CHECK FOR DEPENDENCY 
+ mvn dependency:tree|grep "platform:cache"
+ 
+#RUN SINGLE TEST FROM COMMAND LINE USING MAVEN 
+mvn test -Dtest=ClassName
+
+#RUN SUITE TESTNG FILE USING MAVEN COMMAND
+mvn test -DsuiteXmlFile=testng.xml
+
+#RUN TEST WITH COMMAND LINE ARGUMENTS
+mvn  test -Denv=dev
+
+#BUILD WITH SKIPPED TESTS
+Man clean install -DskipTests=true

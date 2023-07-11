@@ -1,0 +1,136 @@
+
+#To get log between time frames : 
+grep '2016-01-27 17:\|2016-01-27 18' appservice.log
+
+#Get count of search keyword from a file : 
+grep -c 'searchKeyword' fileName.log
+
+#Get LineNumbers of search keyword from a file : 
+grep -o -b 'searchKeyword' fileName.log
+ 
+#Get 100 lines around the search keyword from a file : 
+grep -C '100' 'searchKeyword' fileName.log
+ 
+#Get 100 lines above the search keyword from a file : 
+grep -A '100' 'searchKeyword' fileName.log
+ 
+#Get 100 lines below the search keyword from a file : 
+grep -B '100' 'searchKeyword' fileName.log
+ 
+#Get some lines above and below the search keyword from a file : 
+grep -after-context=5 --before-context=10 'searchKeyword' fileName.log
+
+#Search for a string in a file : 
+grep 'searchKeyword' fileName.log
+ 
+#Search for a string in all file of similar format: (Eg : .log)
+grep 'searchKeyword' *.log
+ 
+#Search for a exact word in a file :
+grep -iw 'searchKeyword' fileName.log
+ 
+#Print extracted log in a file :
+grep 'searchKeyword' fileName.log > NewFileName.log
+ 
+#Recursive search : 
+grep -r 'searchKeyword' * > NewFileName.log
+ 
+#Invert search : 
+grep -v 'searchKeyword' * > NewFileName.log
+ 
+#Get count of number of match :
+grep -c 'searchKeyword' filename > NewFileName.loggrep -r 'searchKeyword' filename | wc -l
+ 
+#Display only filenames matching the pattern :
+grep -I 'searchKeyword' filename > NewFileName.log
+ 
+#Get Position of Matched keyword in a file :
+grep -o -b 'searchKeyword' filename > NewFileName.logo - match only string
+b - show position
+ 
+#Show line number of matched keyword :
+grep -n 'searchKeyword' filename > NewFileName.log
+ 
+#Show line number of matched keyword :
+grep -n 'searchKeyword' filename > NewFileName.log
+ 
+#Exact matched keyword :
+grep -rlw 'searchKeyword' filename > NewFileName.log
+ 
+#Lines having the keyword :
+grep -rl 'searchKeyword' filename > NewFileName.log
+ 
+##Secure Copy Commands
+#Secure Copy from server to local : (CDC-MAIN TO LOCAL)
+scp testuser@xxdc-main-client00.fd.xxx.com:/home/filename.log .
+ 
+#Secure Copy from server to local : (IP to LOCAL)
+scp userName@10.xx.xx.xx:/fileName .
+ 
+#Secure Copy file to server : (LOCAL to COMPUTE) 
+scp fileName app@10.XXX.XX.XX:/tmp/
+ 
+#Secure Copy folder to server : (LOCAL to COMPUTE) 
+scp -r fileName app@10.XXX.XX.XX:/tmp/
+
+#Command line Operations 
+Force delete a directory : 
+rm -rf folderName
+ 
+#List By Date/Reverse : 
+ls -ltr
+ 
+#Extract Jar File Content : 
+jar xf jarFileName
+ 
+#Extract Tar File Content : 
+tar -vxf tarFileName
+ 
+Check what processes are running :
+ps
+
+Search all processes related to java : 
+ps -ef | grep 'java'
+
+View contents of a file : 
+
+less fileName
+
+http://linux.about.com/library/cmd/blcmdl1_less.htm
+
+
+----------------------------------------------------------------
+
+put this into bash_profile
+
+cat: bash_profile: No such file or directory
+cat ~/.bash_profile
+export JAVA_HOME=$(/usr/libexec/java_home)
+export M2_HOME=/Users/username/Documents/mac_software/apache-maven-3.3.9
+export PATH=/Library/Java/JavaVirtualMachines/1.8.0_60.jdk/Contents/Home/bin:/Users/<ldapId>/Documents/mac_software/apache-maven-3.3.9/bin:/Users/<ldapId>/Downloads/chromedriver:/Users/<ldapId>/Downloads/chromedriver:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$PATH:/usr/local/share/npm/bin/:/Users/<ldapId>/Documents/mac_software/apache-tomcat-8.0.28/bin
+export CATALINA_HOME=/Users/username/Documents/mac_software/apache-tomcat-8.0.28
+export ANDROID_HOME=/Users/username/Documents/android-sdk-macosx
+export ANDROID_SDK=$ANDROID_HOME
+export GITHUB_TOKEN=3c30bbd3a037756e6988d9883b08d3365ffd3148
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
+PATH=$PATH:$ANDROID_HOME/build-tools
+PATH=$PATH:$ANDROID_HOME/tools
+PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+-----------------------------------------------------------------------------------------------------
+
+/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Java/JavaVirtualMachines/1.8.0_60.jdk/Contents/Home/bin:/Users/<ldapId>/Documents/mac_software/apache-maven-3.3.9/bin:/Users/<ldapId>/Downloads/chromedriver:/Users/<ldapId>/Downloads/chromedriver:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/share/npm/bin/:/Users/<ldapId>/Documents/mac_software/apache-tomcat-8.0.28/bin:/Users/<ldapId>/Documents/android-sdk-macosx/build-tools:/Users/<ldapId>/Documents/android-sdk-macosx/tools:/Users/<ldapId>/Documents/android-sdk-macosx/platform-tools
+

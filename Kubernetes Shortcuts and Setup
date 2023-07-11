@@ -1,0 +1,112 @@
+What is Kubernetes?
+
+- Open source system for managing containerized applications across multiple hosts.
+- Open source container orchestration platform that automates many of the manual processes involved in deploying, managing, and scaling containerized applications.
+
+What are kubernetes clusters?
+
+You can cluster together groups of hosts running on Linux containers, and Kubernetes helps you easily and efficiently manage those clusters.
+
+Points : 
+* Kubernetes was originally developed and designed by engineers at Google.
+* Red Hat was one of the first companies to work with Google on Kubernetes, even prior to launch, and has become the 2nd leading contributor to the Kubernetes upstream project. 
+* Later Google donated the kubernetes project to Cloud Native Computing Foundation.
+
+How to setup Kubernetes and connect to the cluster : 
+* If your project has already setup the kubernetes cluster, just download the kubeconfig.yaml file
+* In your local Mac, run this command to install : brew install k9s
+Under your user directory create .kube directory.
+Under .kube directory, create config file(In some cases, the file gets created by default as part of the installation) in the below format, and add the following properties : 
+* apiVersion: v1
+* clusters:
+- cluster:
+certificate-authority-data
+server
+name
+* contexts:
+- context:
+    cluster: <>
+    user: <>
+  name: <>
+  current-context: <>
+kind: Config
+preferences: {}
+users:
+- name: <>
+  user:
+    client-certificate-data:
+    client-key-data:
+    token:
+
+AZURE KUBERNETES SERVICE : Azure Kubernetes Service (AKS)/AZURE CLI
+Step 1 : Authentication to AKS : 
+az login
+
+az aks get-credentials --resource-group {your-resource-group} --name {your-aks-name}
+
+The section would look like : 
+users:
+  - name: clusterUser_{your-resource-group}_{your-aks-name}
+    user:
+      auth-provider:
+        config:
+          apiserver-id: ...
+          client-id: ...
+          config-mode: '1'
+          environment: AzurePublicCloud
+          tenant-id: ...
+        name: azure
+
+  
+
+In order to view and manage the clusters in your local, you can add the kubeconfig.yaml configuration you have downloaded from your azure kubernetes service config yaml file. 
+
+Kubernetes Command Line Tool To Manage Your Clusters in your local : 
+https://k9scli.io/
+
+Install k9s using brew command : brew install k9s
+Add the configuration to .kube/config file
+
+And you are set!
+
+Launch k9s using this command :
+k9s
+
+K9s Commands : 
+Press 'shift+Colon' - For Searching with any keyword
+Type 'pods' - Gives the list of pods to choose from
+secrets - Gives the cluster secrets, credentials
+Press 'y' - Choose a secret and press y to display all the credentials as yaml file like below : 
+│ apiVersion: v1                                                                                                                                                                                                                          │
+│ data:                                                                                                                                                                                                                                   │
+│   ca:                                                                                                                                                                  │
+│   cert: 
+│   key:                                                                                                                                                        │
+│ kind: Secret                                                                                                                                                                                                                            │
+│ metadata:                                                                                                                                                                                                                               │
+│   creationTimestamp: "2023-04-18T12:23:38Z"                                                                                                                                                                                             │
+│   name: test                                                                                                                                                                                                  │
+│   namespace: default                                                                                                                                                                                                                    │
+│   resourceVersion: "433"                                                                                                                                                                                                               │
+│   uid: <>                                                                                                                                                                                             │
+│ type: Opaque
+
+Choose a pod from dropdown, and press enter to view the logs.
+
+Use the k9s commands to view the pods, pod logs, namespaces, etc. 
+# List all available CLI options
+k9s help
+# Get info about K9s runtime (logs, configs, etc..)
+k9s info
+# Run K9s in a given namespace.
+k9s -n mycoolns
+# Run K9s and launch in pod view via the pod command.
+k9s -c pod
+# Start K9s in a non default KubeConfig context
+k9s --context coolCtx
+# Start K9s in readonly mode - with all modification commands disabled
+k9s --readonly
+
+KUBECTL Commands : 
+
+
